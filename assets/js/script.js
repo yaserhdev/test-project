@@ -62,7 +62,7 @@ function getTrailerID(movieTitle) {
 			$("iframe").removeAttr("src");
 			var videoID = response.items[0].id.videoId;
 			// Assigns new iFrame URL
-			$("iframe").attr("src", "http://www.youtube.com/embed/" + videoID);
+			$("iframe").attr("src", "https://www.youtube.com/embed/" + videoID);
 		});
 	});
 };
