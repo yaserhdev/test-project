@@ -1,0 +1,98 @@
+html {
+    background-color: #13F5D7;
+}
+
+h1 {
+    text-align: center;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.card, .box {
+    background-color: #37F5BB;
+}
+
+.column {
+    text-align: center;
+}
+
+.intro {
+    padding: 1em;
+}
+
+.search {
+    text-align: center;
+    margin-top: 2em;
+}
+
+input {
+    margin-top: 15px;
+}
+
+.search-btn, .clear-btn {
+    margin-bottom: 25px;
+}
+
+#history {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.history {
+    margin: 5px;
+}
+
+.is-light {
+    text-transform: capitalize;
+}
+
+.clear-btn {
+    margin-top: 5px;
+}
+
+#current-movie {
+    margin-top: 10px;
+}
+
+iframe {
+    border-radius: 10px;
+    margin-bottom: 2em;
+}
+
+#review {
+    background-color: #13F5D7;
+    margin: 1em 0.75em 2em 1.5em;
+}
+
+ol {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+ol li {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 1em;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.synopsis {
+    background-color: #13F5D7;
+    margin: 1em 1.5em 2em 0.75em;
+}
+
+p {
+    padding: 0.5em;
+    text-align: left;
+}
+
+.footer {
+    background-color: #13F5D7;
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Movie Trailers and Reviews</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+        <link rel="stylesheet" href="assets\css\style.css"/>
+    </head>
+    <body>
+        <header>
+            <div class="container is-fluid content">
+                <h1 class="notification is-primary">Movie Trailers and Reviews</h1>
+            </div>
+        </header>
+        <div class="columns is-centered">
+            <div class="column is-three-fifths">
+                <div class="card">
+                    <p class="intro">
+                    Welcome to the Movie Trailers and Reviews application! 
+                    All you have to do is submit a movie title of your choosing. The application will then present you with a movie trailer, user reviews, and a synopsis. 
+                    The more specific your title entry, the more accurate the results will be!
+                    </p>
+                </div>
+                <section class="card search">
+                    <div class="columns is-mobile is-centered">
+                        <div class="column is-four-fifths">
+                            <input class="input is-rounded" type="text" placeholder="Search movies...">
+                        </div>
+                    </div>
+                    <button class="button is-primary is-rounded search-btn">Submit</button>
+                    <div id="history" class="hidden">Search History</div>
+                    <div id="history-list"></div>
+                    <button class="button is-primary is-rounded clear-btn">Clear History</button>
+                </section>
+            </div>
+        </div>
+        <div class="column card">
+            <h1 id="current-movie" class="title is-one"></h1>
+            <iframe 
+                class="youtube-player hide"
+                type="text/html" width="640"
+                height="385"
+                src="http://www.youtube.com/embed/">
+            </iframe>
+            <div class="columns">
+              <div id="review" class="column card hide">
+                <h5>Reviews</h5>
+                <ol id="reviews" class="content"></ol>
+              </div>
+              <div class="column card synopsis hide">
+                <h5>Synopsis</h5>
+                <p id="synopsis"></p>
+              </div>
+            </div>  
+        </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="assets\js\script.js"></script>
+    </body>
+    <footer class="footer">
+        <p class="content has-text-centered">Copyright 2024</p>
+    </footer>
+</html>
