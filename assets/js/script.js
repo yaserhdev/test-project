@@ -4,6 +4,10 @@ var searchHistory = document.getElementById("history-list");
 var movies = JSON.parse(localStorage.getItem("movie")) || [];
 // Store review list to a variable
 var reviewList = document.getElementById("reviews");
+// Store gif area to a variable
+var giffy = document.getElementById("giffy");
+// Store the search input to a variable
+var input = document.getElementById("search-input");
 
 // Function to get movie info
 function getMovieInfo(movieTitle) {
@@ -40,7 +44,7 @@ function displayTitle(title) {
 	$("#current-movie").text(title);
 };
 
-// Function ti display synopsis
+// Function to display synopsis
 function displaySynopsis(synopsis) {
 	// Clears current synopsis
 	$("#synopsis").text("");
@@ -52,7 +56,7 @@ function displaySynopsis(synopsis) {
 function getTrailerID(movieTitle) {
 	// AJAX request based off movie title to retrieve YouTube video ID of official trailer from response
 	$.ajax({
-		url: "https://youtube.googleapis.com/youtube/v3/search?maxResults=5&order=relevance&q=" + movieTitle + "%20Official%20Trailer&key=AIzaSyBjL77pPgy03XkhkRF0ux7R3lAx3F1fPY4",
+		url: "https://youtube.googleapis.com/youtube/v3/search?maxResults=5&order=relevance&q=" + movieTitle + "%20Official%20Trailer&key=AIzaSyAQhT0mYkvk8Cer8MVAjYEd_bCvR9TjG3A",
 		method: "GET"
 	})
 	.then(function(response) {
@@ -102,6 +106,24 @@ function displayReviews(reviews) {
 	};
 };
 
+// Function to get and display gif
+function getGiffy (movieTitle) {
+	// Variable for fetch request to Giffy API
+    var APIKey = "Vyq56LLo8dMdf8o9UXjv3AD6rkGETMiR";
+    var giffyURL = "https://api.giphy.com/v1/gifs/search?api_key=" + APIKey + "&q=" + movieTitle + "&rating=g";
+	// Fetch request based off movie title to retrieve gif data
+    fetch(giffyURL)
+	.then(response => response.json())
+	.then(response => {
+        var imgPath = response.data[0].images.fixed_height.url;
+        var img = document.createElement("img");
+        img.setAttribute("src", imgPath);
+		// Removes current gif
+		$("img").remove();
+        giffy.appendChild(img); 
+	});
+};
+
 // Function to save search history
 function saveHistory(movieTitle) {
 	// Converts movie title to lowercase for comparison purposes
@@ -136,15 +158,33 @@ function loadHistory(event) {
 	var movieTitle = event.target.textContent;
 	getMovieInfo(movieTitle);
 	getTrailerID(movieTitle);
+	getGiffy(movieTitle);
 };
 
-// Event listener for submit button
+// Event listener for pressing enter key when searching for a movie
+input.addEventListener("keydown", function(event) {
+	// Check if the key pressed is the Enter key (key code 13)
+	if (event.key === "Enter") {
+    	// Perform the submit action
+		event.preventDefault();
+		var movieTitle = $(".input").val(); 
+		getMovieInfo(movieTitle);
+		getTrailerID(movieTitle);
+		saveHistory(movieTitle);
+		getGiffy(movieTitle);
+		// Clears search input value
+		$(".input").val("");
+  	};
+});
+
+// Event listener for clicking submit button
 $(".search-btn").on("click", function() {
 	// Assigns search input value to a variable
 	var movieTitle = $(".input").val(); 
 	getMovieInfo(movieTitle);
 	getTrailerID(movieTitle);
 	saveHistory(movieTitle);
+	getGiffy(movieTitle);
 	// Clears search input value
 	$(".input").val("");
 });

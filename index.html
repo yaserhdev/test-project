@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <title>Movie Trailers and Reviews</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets\css\style.css"/>
     </head>
     <body>
@@ -20,13 +21,13 @@
                     <p class="intro">
                     Welcome to the Movie Trailers and Reviews application! 
                     All you have to do is submit a movie title of your choosing. The application will then present you with a movie trailer, user reviews, and a synopsis. 
-                    The more specific your title entry, the more accurate the results will be!
+                    Entering the year of the movie will give you a better result. The more specific your title entry, the more accurate the results will be!
                     </p>
                 </div>
                 <section class="card search">
                     <div class="columns is-mobile is-centered">
                         <div class="column is-four-fifths">
-                            <input class="input is-rounded" type="text" placeholder="Search movies...">
+                            <input class="input is-rounded" id="search-input" type="text" placeholder="Search movies...">
                         </div>
                     </div>
                     <button class="button is-primary is-rounded search-btn">Submit</button>
@@ -53,12 +54,13 @@
                 <h5>Synopsis</h5>
                 <p id="synopsis"></p>
               </div>
-            </div>  
+            </div> 
+            <div id="giffy"></div> 
         </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets\js\script.js"></script>
     </body>
     <footer class="footer">
-        <p class="content has-text-centered">Copyright 2024</p>
+        <p class="content has-text-centered" id="footer">Copyright 2024</p>
     </footer>
 </html>
